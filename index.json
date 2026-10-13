@@ -1,16 +1,5 @@
 {
   "updated": "2026-10-13",
-  "note": "这是 StatGI 的模块仓库清单。每个模块都是声明式的 .sgmod.json （只能'启动程序/打开网址'，不执行第三方代码）",
-  "modules": [
-    {
-      "key": "auto_door",
-      "name": "自动开门",
-      "desc": "到点启动 BetterGI 并执行「开门」配置组",
-      "author": "Cash553",
-      "version": "1.0",
-      "file": "modules/auto_door.sgmod.json",
-      "size": 338,
-      "sha256": "c37a10651ef7652f5da560c068739c2ae31d47ee251434d42f75003968b1b4f7"
-    }
-  ]
+  "note": "StatGI 模块仓库清单。每个模块都是声明式的 .sgmod.json（只能'启动程序/打开网址'，不执行第三方代码）",
+  "modules": []
 }
