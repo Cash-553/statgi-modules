@@ -50,6 +50,15 @@ def do_modules():
             continue
         name = d.name
         ver = ""
+        key = name
+        try:
+            import re as _re
+            m = _re.search(r'^\s*KEY\s*=\s*["\']([^"\']+)["\']',
+                           (d / "module.py").read_text(encoding="utf-8"), _re.M)
+            if m:
+                key = m.group(1).strip() or name
+        except Exception:
+            pass
         try:
             import re
             m = re.search(r'^\s*VERSION\s*=\s*["\']([^"\']+)["\']',
@@ -57,13 +66,13 @@ def do_modules():
             ver = m.group(1) if m else ""
         except Exception:
             pass
-        dst = MODS / (name + ".zip")
+        dst = MODS / (key + ".zip")
         with zipfile.ZipFile(dst, "w", zipfile.ZIP_DEFLATED) as z:
             for f in sorted(d.rglob("*")):
                 if f.is_file() and "__pycache__" not in f.parts:
                     z.write(f, str(f.relative_to(d.parent)).replace("\\", "/"))
         blob = dst.read_bytes()
-        item = {"key": name, "kind": "module", "name": name,
+        item = {"key": key, "kind": "module", "name": name,
                 "desc": "", "author": "", "version": ver,
                 "file": "modules/" + dst.name, "size": len(blob),
                 "sha256": _sha(blob)}
@@ -77,7 +86,7 @@ def do_modules():
                         item[k] = j[k]
             except Exception:
                 pass
-        old = _old(name, "modules")
+        old = _old(key, "modules")
         if old and old.get("changelog") and "changelog" not in item:
             item["changelog"] = old["changelog"]
         item["updated"] = __import__("datetime").date.today().isoformat()
@@ -127,10 +136,11 @@ def do_configs():
             if not acts or bad:
                 print("跳过（动作只能是 exe / url）：", f.name, bad)
                 continue
-            dst = CFGS / f.name
-            shutil.copy2(f, dst)
+            _k = str(j.get("key") or f.stem)
+            dst = CFGS / (_k + ".sgmod.json")
+            dst.write_bytes(f.read_bytes())
             blob = dst.read_bytes()
-            item = {"key": j.get("key") or f.stem, "kind": "config",
+            item = {"key": _k, "kind": "config",
                     "name": j.get("name") or f.stem, "desc": j.get("desc", ""),
                     "author": j.get("author", "匿名"),
                     "version": str(j.get("version", "1.0")),
