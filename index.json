@@ -10,8 +10,8 @@
       "author": "",
       "version": "1.0",
       "file": "modules/testmod.zip",
-      "size": 1234,
-      "sha256": "229a79a24e2b9900f119f7f0524a81975f4737d27b2976417c47f724f922384f",
+      "size": 1186,
+      "sha256": "1e8b94267c1183ec738872200d1e3c4c23cef492682df217e6cb25c82728f1ff",
       "updated": "2026-10-15"
     }
   ],
@@ -20,12 +20,12 @@
       "key": "testcfg",
       "kind": "config",
       "name": "测试配置",
-      "desc": "仓库测试用；只是打开一个网页",
+      "desc": "测试配置内容：滚木",
       "author": "Cash553",
       "version": "1.0",
       "file": "configs/testcfg.sgmod.json",
-      "size": 331,
-      "sha256": "d15f34760402162e042d3f555438b40e71066ba7f69c0faf27ef3a766621aaf9",
+      "size": 316,
+      "sha256": "afda16dcfaa83322383d5b26b4aeb4256c940669536b246183181bf1c8a11f1b",
       "has_modules": false,
       "updated": "2026-10-15"
     }
