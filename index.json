@@ -1,5 +1,6 @@
 {
   "updated": "2026-10-15",
-  "note": "StatGI 模块仓库清单（.sgmod.json 声明式模块）",
-  "modules": []
+  "note": "StatGI 仓库清单：modules = 纯模块；configs = 配置（声明式，不含代码）",
+  "modules": [],
+  "configs": []
 }
