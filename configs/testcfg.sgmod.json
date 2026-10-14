@@ -2,10 +2,9 @@
   "key": "testcfg",
   "name": "测试配置",
   "desc": "测试配置内容：滚木",
-  "author": "Cash553",
+  "author": "匿名",
   "version": "1.0",
   "category": "测试",
-  "changelog": "首次发布（仓库连通性测试）",
   "actions": [
     {
       "type": "url",
