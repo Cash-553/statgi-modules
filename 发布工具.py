@@ -30,7 +30,7 @@ def main():
     items = []
     for f in sorted(SRC.glob("*.sgmod.json")):
         try:
-            d = json.loads(f.read_text(encoding="utf-8"))
+            d = json.loads(f.read_text(encoding="utf-8-sig"))
         except Exception as e:
             print("跳过（不是合法 JSON）：", f.name, e)
             continue
@@ -47,7 +47,7 @@ def main():
         dst = MODS / (key + ".sgmod.json")
         shutil.copy2(f, dst)
         blob = dst.read_bytes()
-        items.append({
+        item = {
             "key": key,
             "name": d.get("name", key),
             "desc": d.get("desc", ""),
@@ -56,7 +56,18 @@ def main():
             "file": "modules/" + dst.name,
             "size": len(blob),
             "sha256": hashlib.sha256(blob).hexdigest(),
-        })
+        }
+        # 2026-10-15 新增（可选）：分类 / 更新说明 / 更新时间 / 精选
+        #   程序里的「模块仓库」靠这几个字段做筛选和"更新了什么"提示
+        for k in ("category", "changelog"):
+            v = str(d.get(k) or "").strip()
+            if v:
+                item[k] = v
+        v = str(d.get("updated") or "").strip()
+        item["updated"] = v or __import__("datetime").date.today().isoformat()
+        if d.get("featured"):
+            item["featured"] = True
+        items.append(item)
         print("已收录：", key, "->", dst.name)
     if not items:
         print("没有可收录的模块（先在 模块源/ 里放 .sgmod.json）")
