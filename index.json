@@ -6,12 +6,14 @@
       "key": "testmod",
       "kind": "module",
       "name": "测试模块",
-      "desc": "",
-      "author": "",
+      "desc": "测试模块内容：滚木",
+      "author": "Cash553",
       "version": "1.0",
       "file": "modules/testmod.zip",
-      "size": 1186,
-      "sha256": "1e8b94267c1183ec738872200d1e3c4c23cef492682df217e6cb25c82728f1ff",
+      "size": 1436,
+      "sha256": "861eb2d7fac82483d313efea33c6d85a57d94c69a0c9d5efb0ee18452128590b",
+      "category": "测试",
+      "changelog": "改了说明",
       "updated": "2026-10-15"
     }
   ],
