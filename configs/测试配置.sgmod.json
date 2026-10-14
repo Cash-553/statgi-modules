@@ -1,0 +1,15 @@
+{
+  "key": "testcfg",
+  "name": "测试配置",
+  "desc": "仓库测试用；只是打开一个网页",
+  "author": "Cash553",
+  "version": "1.0",
+  "category": "测试",
+  "changelog": "首次发布（仓库连通性测试）",
+  "actions": [
+    {
+      "type": "url",
+      "url": "https://example.com"
+    }
+  ]
+}

@@ -1,6 +1,33 @@
 {
   "updated": "2026-10-15",
   "note": "StatGI 仓库清单：modules = 纯模块；configs = 配置（声明式，不含代码）",
-  "modules": [],
-  "configs": []
+  "modules": [
+    {
+      "key": "测试模块",
+      "kind": "module",
+      "name": "测试模块",
+      "desc": "",
+      "author": "",
+      "version": "1.0",
+      "file": "modules/测试模块.zip",
+      "size": 1234,
+      "sha256": "229a79a24e2b9900f119f7f0524a81975f4737d27b2976417c47f724f922384f",
+      "updated": "2026-10-15"
+    }
+  ],
+  "configs": [
+    {
+      "key": "testcfg",
+      "kind": "config",
+      "name": "测试配置",
+      "desc": "仓库测试用；只是打开一个网页",
+      "author": "Cash553",
+      "version": "1.0",
+      "file": "configs/测试配置.sgmod.json",
+      "size": 331,
+      "sha256": "d15f34760402162e042d3f555438b40e71066ba7f69c0faf27ef3a766621aaf9",
+      "has_modules": false,
+      "updated": "2026-10-15"
+    }
+  ]
 }
