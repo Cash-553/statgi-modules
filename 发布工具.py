@@ -86,9 +86,6 @@ def do_modules():
                         item[k] = j[k]
             except Exception:
                 pass
-        old = _old(key, "modules")
-        if old and old.get("changelog") and "changelog" not in item:
-            item["changelog"] = old["changelog"]
         item["updated"] = __import__("datetime").date.today().isoformat()
         out.append(item)
         print("已收录模块：", name, "->", dst.name, f"({len(blob)} 字节)")
