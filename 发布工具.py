@@ -70,7 +70,7 @@ def do_modules():
         with zipfile.ZipFile(dst, "w", zipfile.ZIP_DEFLATED) as z:
             for f in sorted(d.rglob("*")):
                 if f.is_file() and "__pycache__" not in f.parts:
-                    z.write(f, str(f.relative_to(d.parent)).replace("\\", "/"))
+                    z.write(f, key + "/" + str(f.relative_to(d)).replace("\\", "/"))   # 用 KEY 当根目录 ✓
         blob = dst.read_bytes()
         item = {"key": key, "kind": "module", "name": name,
                 "desc": "", "author": "", "version": ver,
